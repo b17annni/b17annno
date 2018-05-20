@@ -46,9 +46,9 @@ public class Tabb2content extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.tabb2, container, false);
          class MainActivity extends AppCompatActivity {
-            private String[] mountainNames = {"Matterhorn","Mont Blanc","Denali"};
-            private String[] mountainLocations = {"Alps","Alps","Alaska"};
-            private int[] mountainHeights ={4478,4808,6190};
+
+
+
             private List<Mountain_class> myberg = new ArrayList<Mountain_class>();
             private ArrayAdapter adapter;
             @Override
@@ -58,10 +58,7 @@ public class Tabb2content extends Fragment {
 
                 new FetchData().execute();
 
-                for (int start=0;start<mountainNames.length;start++){
-                    Mountain_class m = new Mountain_class(mountainNames[start],mountainLocations[start],mountainHeights[start]);
-                    myberg.add(m);
-                }
+
 
                 String[] mountains = {"K2","Mount Rainier","Aconcagua"};
                 List<String> listData = new ArrayList<String>(Arrays.asList(mountains));
@@ -80,8 +77,6 @@ public class Tabb2content extends Fragment {
 
             }
 
-
-
              class FetchData extends AsyncTask<Void,Void,String>{
 
 
@@ -98,7 +93,7 @@ public class Tabb2content extends Fragment {
 
                     try {
                         // Construct the URL for the Internet service
-                        URL url = new URL("http://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom");
+                        URL url = new URL("http://wwwlab.iit.his.se/b17annni/mp/hfj.json");
 
                         // Create the request to the PHP-service, and open the connection
                         urlConnection = (HttpURLConnection) url.openConnection();
@@ -152,7 +147,7 @@ public class Tabb2content extends Fragment {
                     Log.d("mylog","DataFetched"+o);
                     try {
                         JSONArray allaberg = new JSONArray(o);
-                        adapter.clear();
+
                         for (int start=0;start<allaberg.length();start++){
                             JSONObject woow = allaberg.getJSONObject(start);
                             int mountainid = woow.getInt("ID");
@@ -181,6 +176,9 @@ public class Tabb2content extends Fragment {
                     // of our newly created Mountain class.
                 }
             }
+
+
+
         }
 
         return rootView;
