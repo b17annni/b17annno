@@ -1,18 +1,13 @@
 package com.example.b17annni.woff;
 
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -26,25 +21,19 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+public class mylist extends AppCompatActivity {
 
-/**
- * Created by b17annni on 2018-05-20.
- *///URL to get JSON Array  http://wwwlab.iit.his.se/b17annni/mp/hfj.json
+    class MainActivity extends AppCompatActivity {
 
-public class Tabb2content extends Fragment {
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tabb2, container, false);
 
-    class Jlist extends AppCompatActivity {
 
         private List<Mountain_class> myberg = new ArrayList<Mountain_class>();
         private ArrayAdapter adapter;
-
-        protected void inCreate(Bundle savedInstanceState) {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
@@ -65,7 +54,7 @@ public class Tabb2content extends Fragment {
 
         }
 
-         class FetchData extends AsyncTask<Void,Void,String> {
+        class FetchData extends AsyncTask<Void,Void,String>{
 
 
 
@@ -152,11 +141,6 @@ public class Tabb2content extends Fragment {
                 }
             }
         }
-
-
-    }
-        return view;}
-
-}
-
+        }
+        }
 
